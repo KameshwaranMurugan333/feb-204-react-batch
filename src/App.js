@@ -1,23 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import MyClassComponent from './ClassComponent';
+import MyFunctionalComponent from './FunctionalComponent';
+import { Goal } from './Goal';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id='' className='App-header'>
+      <Goal isGoal={true} />
+      <MyClassComponent name={"I am from App"} age={25} />
+      <MyFunctionalComponent name={"I am from App"} age={25} />
     </div>
   );
 }

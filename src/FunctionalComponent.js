@@ -5,7 +5,7 @@ const MyFunctionalComponent = (props) => {
 
     //1. Creating and initializing state
     const [count, setCount] = React.useState(1);
-    const [name, updateName] = React.useState("Kameh");
+    const [name] = React.useState("Kameh");
     const [student, updateStudent] = React.useState({
         name: "Kamesh",
         age: 27,

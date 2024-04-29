@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import MyClassComponent from './ClassComponent';
 import MyFunctionalComponent from './FunctionalComponent';

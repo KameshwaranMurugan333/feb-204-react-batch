@@ -1,14 +1,17 @@
+import React from 'react';
 import './App.css';
-import MyClassComponent from './ClassComponent';
-import MyFunctionalComponent from './FunctionalComponent';
-import { Goal } from './Goal';
+import { CompA } from './components/CompA';
+import { Compb } from './components/CompB';
 
 function App() {
+
+  const [count, setCount] = React.useState(0);
+
   return (
     <div id='' className='App-header'>
-      <Goal isGoal={true} />
-      <MyClassComponent name={"I am from App"} age={25} />
-      <MyFunctionalComponent name={"I am from App"} age={25} />
+      <button onClick={() =>  setCount(count + 1)}>Increment</button>
+      <CompA />
+      <Compb count={count} />
     </div>
   );
 }

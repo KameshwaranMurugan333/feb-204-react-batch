@@ -6,7 +6,7 @@ export const CompD = (props) => {
     return <div>
         <h1>CompD</h1>
         <p>Received Prop: {props.count}</p>
-        <CompG />
+        <CompG toggleSwithc={props.toggleSwithc} />
         <CompH count={props.count} />
     </div>
 }

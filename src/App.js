@@ -1,24 +1,16 @@
 import React from 'react';
 import './App.css';
-import { CompA } from './components/CompA';
-import { Compb } from './components/CompB';
+import LifeCycleMethods from './components/LifeCycleMethods';
 
 function App() {
 
   const [count, setCount] = React.useState(0);
 
-  const [swithc, toggleSwithc] = React.useState(true);
-
-  const updateToggleSwitch = () => {
-    toggleSwithc(!swithc);
-  }
-
-
   return (
     <div id='' className='App-header'>
       <button onClick={() => setCount(count + 1)}>Increment</button>
-      <CompA switch={swithc} />
-      <Compb count={count} setCount={setCount} toggleSwithc={updateToggleSwitch} />
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+      {count > 0 && <LifeCycleMethods count={count} />}
     </div>
   );
 }

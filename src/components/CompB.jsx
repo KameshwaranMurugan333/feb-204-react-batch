@@ -1,11 +1,14 @@
 import React from "react";
 import { CompD } from "./CompD";
+import { MyContext } from "../contexts";
 
-export const Compb = (props) => {
+export const Compb = () => {
+
+    const myContext = React.useContext(MyContext);
+
     return <div>
         <h1>Compb</h1>
-        <button onClick={() => props.setCount(props.count + 1)}>Increment</button>
-        <p>Received Count: {props.count}</p>
-        <CompD count={props.count} toggleSwithc={props.toggleSwithc} />
+        <button onClick={() => myContext.setCount(myContext.count + 1)}>Increment</button>
+        <CompD />
     </div>
 }

@@ -1,17 +1,22 @@
 import React from 'react';
 import './App.css';
-import LifeCycleMethods from './components/LifeCycleMethods';
+import { CompA } from './components/CompA';
+import { Compb } from './components/CompB';
+import { MyContext } from './contexts';
 
 function App() {
 
   const [count, setCount] = React.useState(0);
 
   return (
-    <div id='' className='App-header'>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-      <button onClick={() => setCount(count - 1)}>Decrement</button>
-      {count > 0 && <LifeCycleMethods count={count} />}
-    </div>
+    <MyContext.Provider value={{ count, setCount }}>
+      <div id='' className='App-header'>
+        <button onClick={() => setCount(count + 1)}>Increment</button>
+        <button onClick={() => setCount(count - 1)}>Decrement</button>
+        <CompA />
+        <Compb />
+      </div>
+    </MyContext.Provider>
   );
 }
 

@@ -1,22 +1,21 @@
 import React from 'react';
 import './App.css';
-import { CompA } from './components/CompA';
-import { Compb } from './components/CompB';
-import { MyContext } from './contexts';
+import { StudentForm } from './components/StudentForm';
+import { StudentList } from './components/StudentsList';
+import { StudentListContext } from './contexts';
 
 function App() {
 
-  const [count, setCount] = React.useState(0);
+  const [form, setForm] = React.useState({});
+  const [studentList, setStudentList] = React.useState([]);
 
   return (
-    <MyContext.Provider value={{ count, setCount }}>
+    <StudentListContext.Provider value={{ form, setForm, studentList, setStudentList }}>
       <div id='' className='App-header'>
-        <button onClick={() => setCount(count + 1)}>Increment</button>
-        <button onClick={() => setCount(count - 1)}>Decrement</button>
-        <CompA />
-        <Compb />
+        <StudentForm />
+        <StudentList />
       </div>
-    </MyContext.Provider>
+    </StudentListContext.Provider>
   );
 }
 

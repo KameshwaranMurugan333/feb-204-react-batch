@@ -20,19 +20,22 @@ export const StudentList = () => {
             <th>SSLC Percentage</th>
         </thead>
         <tbody>
-            {studentContext.studentList.map((student,index) => {
-                return <tr key={index}>
-                    <td>{index + 1}</td>
-                    <td>{student.name}</td>
-                    <td>{student.gender}</td>
-                    <td>{student.fatherName}</td>
-                    <td>{student.motherName}</td>
-                    <td>{student.address}</td>
-                    <td>{student.hsc_mark}</td>
-                    <td>{student.hsc_percentage}</td>
-                    <td>{student.sslc_mark}</td>
-                    <td>{student.sslc_percentage}</td>
-                </tr>
+            {studentContext.studentList.map((student, index) => {
+                return <React.Fragment key={index}>
+                    <p>I am row</p>
+                    <tr key={index}>
+                        <td>{index + 1}</td>
+                        <td>{student.name}</td>
+                        <td>{student.gender}</td>
+                        <td>{student.fatherName}</td>
+                        <td>{student.motherName}</td>
+                        <td>{student.address}</td>
+                        <td>{student.hsc_mark}</td>
+                        <td>{student.hsc_percentage}</td>
+                        <td>{student.sslc_mark}</td>
+                        <td>{student.sslc_percentage}</td>
+                    </tr>
+                </React.Fragment>
             })}
         </tbody>
     </table>

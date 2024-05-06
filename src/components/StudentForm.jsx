@@ -2,8 +2,9 @@ import React from "react";
 import { BasicDetail } from "./BasicDetail";
 import { AcademicDetails } from "./AcademicDetails";
 import { StudentListContext } from "../contexts";
+import { withBorderBottom } from "../HOCs/withBorderBottom";
 
-export const StudentForm = () => {
+const StudentForm = () => {
 
     const studentContext = React.useContext(StudentListContext);
 
@@ -21,3 +22,5 @@ export const StudentForm = () => {
         <button onClick={onSubmit}>Add to Student List</button>
     </div>
 }
+
+export default withBorderBottom(StudentForm);

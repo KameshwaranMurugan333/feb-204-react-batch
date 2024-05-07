@@ -1,23 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
-import StudentForm from './components/StudentForm';
-import { StudentList } from './components/StudentsList';
-import { StudentListContext } from './contexts';
 
 function App() {
 
-  const [form, setForm] = React.useState({});
-  const [studentList, setStudentList] = React.useState([]);
+  const inputRef = useRef();
+
+  const onSubmit = () => {
+    alert(inputRef.current.value);
+    inputRef.current.style.width = "100%";
+  };
 
   return (<>
-    <h1>Student Register Form and List</h1>
-    <StudentListContext.Provider value={{ form, setForm, studentList, setStudentList }}>
-      <div id='' className={`app-header`}>
-        <StudentForm />
-        <StudentList />
-        {form.name}
-      </div>
-    </StudentListContext.Provider>
+    <input ref={inputRef} placeholder='Enter name' type='text' />
+    <button onClick={onSubmit}>Submit</button>
   </>);
 }
 

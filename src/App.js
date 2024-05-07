@@ -1,5 +1,8 @@
 import React, { useRef } from 'react';
 import './App.css';
+import { ChildComponent } from './components/ChildComponent';
+import { Greetings } from './components/Greetings';
+import { Button } from 'react-bootstrap';
 
 function App() {
 
@@ -13,6 +16,12 @@ function App() {
   return (<>
     <input ref={inputRef} placeholder='Enter name' type='text' />
     <button onClick={onSubmit}>Submit</button>
+
+    <ChildComponent ref={inputRef} />
+
+    <Greetings greetingPrefix={"Welcome all"} name={"Kamesh"} />
+
+    <Button>My Button</Button>
   </>);
 }
 

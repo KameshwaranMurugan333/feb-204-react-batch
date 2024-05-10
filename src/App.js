@@ -9,7 +9,7 @@ import {
 } from "react-router-dom";
 
 import { AppRoutes } from './router/routes';
-import { HomeScreen, LoginScreen, ProfileScreen, RootScreen } from './screens';
+import { HomeScreen, LoginScreen, OtherProfileScreen, ProfileScreen, RootScreen } from './screens';
 
 const protectedRouteLoader = ({ request }) => {
   if (!localStorage.getItem('isUserLoggedIn')) {
@@ -48,6 +48,11 @@ const router = createBrowserRouter([
     path: AppRoutes.profile,
     loader: protectedRouteLoader,
     element: <ProfileScreen />
+  },
+  {
+    path: AppRoutes.otherProfile,
+    loader: protectedRouteLoader,
+    element: <OtherProfileScreen />
   },
   {
     path: "/test",

@@ -1,5 +1,6 @@
 export const AppRoutes = {
     login: "/login",
     home: "/home",
-    profile: "/profile"
+    profile: "/profile",
+    otherProfile: "/profile/:id/:userId",
 };

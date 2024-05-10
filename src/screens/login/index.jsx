@@ -17,7 +17,12 @@ export const LoginScreen = (props) => {
         if (from) {
             navigate(from);
         } else {
-            navigate(AppRoutes.home);
+            navigate(AppRoutes.home, {
+                state: {
+                    name: "Kamesh",
+                    age: "27"
+                }
+            });
         }
     }
 

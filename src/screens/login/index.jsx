@@ -1,16 +1,27 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { AppRoutes } from "../../router/routes";
 
 export const LoginScreen = (props) => {
 
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
 
     const onLoginBtnClicked = () => {
-        navigate(AppRoutes.home);
+
+        // Setting the localstorage 'isUserLoggedIn' to true
+        localStorage.setItem('isUserLoggedIn', true);
+
+        const from = searchParams.get('from');
+
+        if (from) {
+            navigate(from);
+        } else {
+            navigate(AppRoutes.home);
+        }
     }
 
-    const onBackBtnClicked =() => {
+    const onBackBtnClicked = () => {
         navigate(-1);
     }
 

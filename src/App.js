@@ -4,11 +4,30 @@ import './App.css';
 import {
   createBrowserRouter,
   Navigate,
+  redirect,
   RouterProvider,
 } from "react-router-dom";
 
 import { AppRoutes } from './router/routes';
-import { HomeScreen, LoginScreen, RootScreen } from './screens';
+import { HomeScreen, LoginScreen, ProfileScreen, RootScreen } from './screens';
+
+const protectedRouteLoader = ({ request }) => {
+  if (!localStorage.getItem('isUserLoggedIn')) {
+    let params = new URLSearchParams();
+    params.set("from", new URL(request.url).pathname);
+    return redirect(AppRoutes.login + "?" + params.toString());
+  }
+
+  return null;
+};
+
+const publicRouteLoader = ({ request }) => {
+  if (localStorage.getItem('isUserLoggedIn')) {
+    return redirect(AppRoutes.home);
+  }
+
+  return null;
+}
 
 const router = createBrowserRouter([
   {
@@ -17,11 +36,18 @@ const router = createBrowserRouter([
   },
   {
     path: AppRoutes.login,
+    loader: publicRouteLoader,
     element: <LoginScreen />,
   },
   {
     path: AppRoutes.home,
-    element: <HomeScreen />,
+    loader: protectedRouteLoader,
+    element: <HomeScreen />
+  },
+  {
+    path: AppRoutes.profile,
+    loader: protectedRouteLoader,
+    element: <ProfileScreen />
   },
   {
     path: "/test",
